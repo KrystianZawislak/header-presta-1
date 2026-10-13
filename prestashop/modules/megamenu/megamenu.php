@@ -758,16 +758,16 @@ class MegaMenu extends Module
         $manufacturerUrl = $this->context->link->getPageLink('manufacturer');
 
         $idStreetwear = $this->findOrCreateCategory($ml('Streetwear'), $idTopCategory);
-        $idSportOdziez = $this->findOrCreateCategory($ml('Odzież sportowa', 'Sportswear'), 131);
-        $idSportObuwie = $this->findOrCreateCategory($ml('Obuwie sportowe', 'Sports shoes'), 131);
-        $idSportAkcesoria = $this->findOrCreateCategory($ml('Akcesoria sportowe', 'Sport accessories'), 131);
-        $idCialo = $this->findOrCreateCategory($ml('Ciało', 'Body care'), 136);
+        $idSportClothing = $this->findOrCreateCategory($ml('Odzież sportowa', 'Sportswear'), 131);
+        $idSportShoes = $this->findOrCreateCategory($ml('Obuwie sportowe', 'Sports shoes'), 131);
+        $idSportAccessories = $this->findOrCreateCategory($ml('Akcesoria sportowe', 'Sport accessories'), 131);
+        $idBodyCare = $this->findOrCreateCategory($ml('Ciało', 'Body care'), 136);
         $idTwarz = $this->findOrCreateCategory($ml('Twarz', 'Face care'), 136);
-        $idDesignerOdziez = $this->findOrCreateCategory($ml('Odzież', 'Clothing'), 172);
-        $idDesignerObuwie = $this->findOrCreateCategory($ml('Obuwie', 'Shoes'), 172);
+        $idDesignerClothing = $this->findOrCreateCategory($ml('Odzież', 'Clothing'), 172);
+        $idDesignerShoes = $this->findOrCreateCategory($ml('Obuwie', 'Shoes'), 172);
         $idDesignerTorby = $this->findOrCreateCategory($ml('Torby', 'Bags'), 172);
-        $idDesignerAkcesoria = $this->findOrCreateCategory($ml('Akcesoria', 'Accessories'), 172);
-        $idDesignerOkulary = $this->findOrCreateCategory($ml('Okulary przeciwsłoneczne', 'Sunglasses'), 172);
+        $idDesignerAccessories = $this->findOrCreateCategory($ml('Akcesoria', 'Accessories'), 172);
+        $idDesignerSunglasses = $this->findOrCreateCategory($ml('Okulary przeciwsłoneczne', 'Sunglasses'), 172);
 
         $mNewBalance = $this->findOrCreateManufacturer('New Balance');
         $mTimberland = $this->findOrCreateManufacturer('Timberland');
@@ -886,10 +886,10 @@ class MegaMenu extends Module
                 'link' => $cat(131),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $cat(131), [
-                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportOdziez)),
-                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportObuwie)),
+                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportClothing)),
+                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportShoes)),
                         $this->lnk($ml('Plecaki i torby', 'Backpacks and bags'), $cat(161)),
-                        $this->lnk($ml('Akcesoria sportowe', 'Sport accessories'), $cat($idSportAkcesoria)),
+                        $this->lnk($ml('Akcesoria sportowe', 'Sport accessories'), $cat($idSportAccessories)),
                     ]),
                     $this->col($ml('Dyscypliny', 'Disciplines'), $none, [
                         $this->lnk($ml('Trening', 'Training'), $custom()),
@@ -981,11 +981,11 @@ class MegaMenu extends Module
                 'link' => $custom($this->context->link->getCategoryLink(172)),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $cat(172), [
-                        $this->lnk($ml('Odzież', 'Clothing'), $cat($idDesignerOdziez)),
-                        $this->lnk($ml('Obuwie', 'Shoes'), $cat($idDesignerObuwie)),
+                        $this->lnk($ml('Odzież', 'Clothing'), $cat($idDesignerClothing)),
+                        $this->lnk($ml('Obuwie', 'Shoes'), $cat($idDesignerShoes)),
                         $this->lnk($ml('Torby', 'Bags'), $cat($idDesignerTorby)),
-                        $this->lnk($ml('Akcesoria', 'Accessories'), $cat($idDesignerAkcesoria)),
-                        $this->lnk($ml('Okulary przeciwsłoneczne', 'Sunglasses'), $cat($idDesignerOkulary)),
+                        $this->lnk($ml('Akcesoria', 'Accessories'), $cat($idDesignerAccessories)),
+                        $this->lnk($ml('Okulary przeciwsłoneczne', 'Sunglasses'), $cat($idDesignerSunglasses)),
                     ]),
                     $this->colWithSeeAllLabel($ml('Marki', 'Brands'), $ml('Wszystkie marki', 'All brands'), $custom($manufacturerUrl), [
                         $this->lnk($ml('Polo Ralph Lauren'), $mnf($mPoloRalphLauren)),
@@ -1004,7 +1004,7 @@ class MegaMenu extends Module
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $cat(136), [
                         $this->lnk($ml('Perfumy', 'Perfume'), $cat(167)),
-                        $this->lnk($ml('Ciało', 'Body care'), $cat($idCialo)),
+                        $this->lnk($ml('Ciało', 'Body care'), $cat($idBodyCare)),
                         $this->lnk($ml('Włosy', 'Hair'), $cat(169)),
                         $this->lnk($ml('Twarz', 'Face care'), $cat($idTwarz)),
                     ]),
@@ -1080,14 +1080,14 @@ class MegaMenu extends Module
 
         $idPremium = $this->findOrCreateCategory($ml('Premium'), $idTopCategory);
         $idDesigner = $this->findOrCreateCategory($ml('Moda Designer', 'Designer fashion'), $idPremium);
-        $idDesignerOdziez = $this->findOrCreateCategory($ml('Odzież', 'Clothing'), $idDesigner);
-        $idDesignerObuwie = $this->findOrCreateCategory($ml('Obuwie', 'Shoes'), $idDesigner);
-        $idDesignerAkcesoria = $this->findOrCreateCategory($ml('Akcesoria', 'Accessories'), $idDesigner);
-        $idNiemowleta = $this->findOrCreateCategory($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $idTopCategory);
-        $idDzieci = $this->findOrCreateCategory($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $idTopCategory);
-        $idMlodziez = $this->findOrCreateCategory($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $idTopCategory);
-        $idSportOdziez = $this->findOrCreateCategory($ml('Odzież sportowa', 'Sportswear'), 132);
-        $idSportObuwie = $this->findOrCreateCategory($ml('Obuwie sportowe', 'Sports shoes'), 132);
+        $idDesignerClothing = $this->findOrCreateCategory($ml('Odzież', 'Clothing'), $idDesigner);
+        $idDesignerShoes = $this->findOrCreateCategory($ml('Obuwie', 'Shoes'), $idDesigner);
+        $idDesignerAccessories = $this->findOrCreateCategory($ml('Akcesoria', 'Accessories'), $idDesigner);
+        $idBabies = $this->findOrCreateCategory($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $idTopCategory);
+        $idKids = $this->findOrCreateCategory($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $idTopCategory);
+        $idTeens = $this->findOrCreateCategory($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $idTopCategory);
+        $idSportClothing = $this->findOrCreateCategory($ml('Odzież sportowa', 'Sportswear'), 132);
+        $idSportShoes = $this->findOrCreateCategory($ml('Obuwie sportowe', 'Sports shoes'), 132);
 
         $mNewBalance = $this->findOrCreateManufacturer('New Balance');
         $mJordan = $this->findOrCreateManufacturer('Jordan');
@@ -1219,8 +1219,8 @@ class MegaMenu extends Module
                 'link' => $cat(132),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $cat(132), [
-                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportOdziez)),
-                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportObuwie)),
+                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportClothing)),
+                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportShoes)),
                         $this->lnk($ml('Plecaki i torby', 'Backpacks and bags'), $cat(162)),
                     ]),
                     $this->colWithSeeAllLabel($ml('Marki', 'Brands'), $ml('Wszystkie marki', 'All brands'), $custom($manufacturerUrl), [
@@ -1258,9 +1258,9 @@ class MegaMenu extends Module
                 'link' => $custom($this->context->link->getCategoryLink($idDesigner)),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $cat($idDesigner), [
-                        $this->lnk($ml('Odzież', 'Clothing'), $cat($idDesignerOdziez)),
-                        $this->lnk($ml('Obuwie', 'Shoes'), $cat($idDesignerObuwie)),
-                        $this->lnk($ml('Akcesoria', 'Accessories'), $cat($idDesignerAkcesoria)),
+                        $this->lnk($ml('Odzież', 'Clothing'), $cat($idDesignerClothing)),
+                        $this->lnk($ml('Obuwie', 'Shoes'), $cat($idDesignerShoes)),
+                        $this->lnk($ml('Akcesoria', 'Accessories'), $cat($idDesignerAccessories)),
                         $this->lnk($ml('Zabawki', 'Toys'), $cat(125)),
                     ]),
                     $this->colWithSeeAllLabel($ml('Marki', 'Brands'), $ml('Wszystkie marki', 'All brands'), $custom($manufacturerUrl), [
@@ -1299,11 +1299,11 @@ class MegaMenu extends Module
                 'link' => $custom($this->context->link->getCategoryLink($idTopCategory)),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $none, [
-                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportOdziez)),
-                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportObuwie)),
-                        $this->lnk($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $cat($idNiemowleta)),
-                        $this->lnk($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $cat($idDzieci)),
-                        $this->lnk($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $cat($idMlodziez)),
+                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportClothing)),
+                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportShoes)),
+                        $this->lnk($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $cat($idBabies)),
+                        $this->lnk($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $cat($idKids)),
+                        $this->lnk($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $cat($idTeens)),
                     ]),
                     $this->colWithSeeAllLabel($ml('Marki', 'Brands'), $ml('Wszystkie marki', 'All brands'), $custom($manufacturerUrl), [
                         $this->lnk($ml('Nike'), $mnf(8)),
@@ -1321,11 +1321,11 @@ class MegaMenu extends Module
                 'link' => $custom($this->context->link->getCategoryLink($idTopCategory)),
                 'columns' => [
                     $this->col($ml('Kategorie', 'Categories'), $none, [
-                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportOdziez)),
-                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportObuwie)),
-                        $this->lnk($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $cat($idNiemowleta)),
-                        $this->lnk($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $cat($idDzieci)),
-                        $this->lnk($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $cat($idMlodziez)),
+                        $this->lnk($ml('Odzież sportowa', 'Sportswear'), $cat($idSportClothing)),
+                        $this->lnk($ml('Obuwie sportowe', 'Sports shoes'), $cat($idSportShoes)),
+                        $this->lnk($ml('Niemowlęta (0-2 lat)', 'Babies (0-2 years)'), $cat($idBabies)),
+                        $this->lnk($ml('Dzieci (2-9 lat)', 'Kids (2-9 years)'), $cat($idKids)),
+                        $this->lnk($ml('Młodzież (9-16 lat)', 'Teens (9-16 years)'), $cat($idTeens)),
                     ]),
                     $this->colWithSeeAllLabel($ml('Marki', 'Brands'), $ml('Wszystkie marki Premium', 'All Premium brands'), $custom($manufacturerUrl), [
                         $this->lnk($ml('Tommy Hilfiger'), $mnf($mTommyHilfiger)),
