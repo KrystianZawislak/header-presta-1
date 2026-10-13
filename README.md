@@ -2,7 +2,7 @@
 
 A custom PrestaShop 9 header built on the Hummingbird theme. It has a Women/Kids/Men switcher, a configurable mega menu and a drill-down mobile menu. This is a design MVP: only the header is customized and the rest of the store is stock Hummingbird.
 
-![Header desktop](docs/screenshots/header-desktop.png)
+![Header desktop](docs/screenshots/header-desktop.webp)
 
 ## Features
 
@@ -11,12 +11,12 @@ A custom PrestaShop 9 header built on the Hummingbird theme. It has a Women/Kids
 - **Mobile drill-down** inside the hamburger menu (<992px)
 - **Free shipping bar** module and a wishlist icon in the header
 
-![Mega menu](docs/screenshots/megamenu-desktop.png)
+![Mega menu](docs/screenshots/megamenu-desktop.webp)
 
 <p>
-  <img src="docs/screenshots/mobile-header.png" width="260" alt="Mobile header">
-  <img src="docs/screenshots/mobile-menu.png" width="260" alt="Mobile menu">
-  <img src="docs/screenshots/mobile-menu-category.png" width="260" alt="Mobile menu category">
+  <img src="docs/screenshots/mobile-header.webp" width="260" alt="Mobile header">
+  <img src="docs/screenshots/mobile-menu.webp" width="260" alt="Mobile menu">
+  <img src="docs/screenshots/mobile-menu-category.webp" width="260" alt="Mobile menu category">
 </p>
 
 ## Getting started
