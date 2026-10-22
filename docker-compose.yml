@@ -12,7 +12,7 @@ services:
       - "127.0.0.1:3307:3306"
 
   prestashop:
-    image: prestashop/prestashop:9.1.5-8.5@sha256:8e1d3596c5b2b8c4385ac1506a3978f7ae6ff15bf73649713458691308bd2fcc
+    build: ./docker/prestashop
     ports:
       - "127.0.0.1:1000:80"
     environment:

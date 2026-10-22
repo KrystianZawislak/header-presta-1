@@ -52,7 +52,7 @@ docker compose down && rm -rf db_data && git clean -fdX prestashop && docker com
 
 ## How it works
 
-PrestaShop and MariaDB images are pinned by digest. On first start, `docker/post-install/import-project.sh` imports `docker/db/prestashop.sql` (modules, menus, categories, config) and restores `docker/files/` (images, translations, mail templates). The dump contains no customer data or secrets.
+PrestaShop and MariaDB images are pinned by digest. `docker/prestashop/Dockerfile` swaps the PHP binary and Apache module of the PrestaShop image for PHP 8.5.12, which fixes CVE-2026-109618 and CVE-2026-109619 (unauthenticated RCE). Drop it and go back to `image:` once an official `prestashop/prestashop` 9.1.x image ships PHP 8.5.12 or newer. On first start, `docker/post-install/import-project.sh` imports `docker/db/prestashop.sql` (modules, menus, categories, config) and restores `docker/files/` (images, translations, mail templates). The dump contains no customer data or secrets.
 
 After back-office changes, run `./docker/export.sh` to refresh the dump and file snapshot.
 
@@ -63,7 +63,7 @@ Only customizations are tracked, and the rest of `prestashop/` is ignored:
 - `prestashop/modules/`: `megamenu`, `freeshippingbar`, `designassets`
 - `prestashop/themes/hummingbird/`: header template, CSS, fonts and module template overrides
 - `prestashop/override/`: wishlist header hook
-- `docker/`: DB dump, file snapshot and install scripts
+- `docker/`: patched PrestaShop image, DB dump, file snapshot and install scripts
 
 ## Production notes
 
